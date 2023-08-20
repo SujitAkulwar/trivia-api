@@ -41,7 +41,7 @@ Once you are logged in, you can obtain your API key:
 
 Retrieve a random trivia question.
 
-- **Endpoint:** `GET /api/questions/random`
+- **Endpoint:** `Post /questions`
 - **Parameters:** None
 - **Headers:**
   - `Authorization: Bearer YOUR_API_KEY`
@@ -72,17 +72,6 @@ Retrieve a list of available trivia categories.
   "categories": ["Science", "History", "Geography", "Movies", "Music"]
 }
 ```
-
-### Submit Trivia Answer
-
-Submit an answer to a trivia question.
-
-- **Endpoint:** `POST /api/questions/:id/answer`
-- **Parameters:**
-  - `id`: The ID of the trivia question
-- **Headers:**
-  - `Authorization: Bearer YOUR_API_KEY`
-- **Request Body:**
 
 ```json
 {
@@ -117,24 +106,116 @@ To ensure fair usage and prevent abuse, the Trivia API enforces rate limiting. E
 ### Example Request
 
 ```http
-GET /api/questions/random
-Authorization: Bearer YOUR_API_KEY
+POST https://trivia-api-sujit-akulwar.onrender.com/questions
+body : {
+    	"api_key":"1", 
+	"category":"math", 
+	"count" :"5"
+}
 ```
 
 ### Example Response
 
 ```json
 {
-  "id": 123,
-  "category": "Science",
-  "question": "What is the chemical symbol for gold?",
-  "options": ["Au", "Ag", "Hg", "Cu"]
+    "message": [
+        {
+            "qid": 1,
+            "question": "What is the square root of 144?",
+            "correct_answer": "12",
+            "incorrect_answer1": "8",
+            "incorrect_answer2": "10",
+            "incorrect_answer3": "15",
+            "category": "Math"
+        },
+        {
+            "qid": 2,
+            "question": "What is the value of π (pi) rounded to two decimal places?",
+            "correct_answer": "3.14",
+            "incorrect_answer1": "3.16",
+            "incorrect_answer2": "3.12",
+            "incorrect_answer3": "3.18",
+            "category": "Math"
+        },
+        {
+            "qid": 3,
+            "question": "If x = 3 and y = 5, what is the value of 2x + 3y?",
+            "correct_answer": "21",
+            "incorrect_answer1": "19",
+            "incorrect_answer2": "20",
+            "incorrect_answer3": "23",
+            "category": "Math"
+        },
+        {
+            "qid": 4,
+            "question": "What is the result of 8 squared?",
+            "correct_answer": "64",
+            "incorrect_answer1": "56",
+            "incorrect_answer2": "72",
+            "incorrect_answer3": "49",
+            "category": "Math"
+        },
+        {
+            "qid": 5,
+            "question": "If a triangle has angles of 45 degrees, 45 degrees, and 90 degrees, what type of triangle is it?",
+            "correct_answer": "Right triangle",
+            "incorrect_answer1": "Equilateral triangle",
+            "incorrect_answer2": "Isosceles triangle",
+            "incorrect_answer3": "Scalene triangle",
+            "category": "Math"
+        },
+        {
+            "qid": 6,
+            "question": "What is the result of 15 divided by 3?",
+            "correct_answer": "5",
+            "incorrect_answer1": "3",
+            "incorrect_answer2": "4",
+            "incorrect_answer3": "6",
+            "category": "Math"
+        },
+        {
+            "qid": 7,
+            "question": "What is the area of a square with a side length of 7 units?",
+            "correct_answer": "49 square units",
+            "incorrect_answer1": "28 square units",
+            "incorrect_answer2": "35 square units",
+            "incorrect_answer3": "42 square units",
+            "category": "Math"
+        },
+        {
+            "qid": 8,
+            "question": "If a rectangle has a length of 10 units and a width of 4 units, what is its perimeter?",
+            "correct_answer": "28 units",
+            "incorrect_answer1": "40 units",
+            "incorrect_answer2": "24 units",
+            "incorrect_answer3": "16 units",
+            "category": "Math"
+        },
+        {
+            "qid": 9,
+            "question": "What is the value of 3! (3 factorial)?",
+            "correct_answer": "6",
+            "incorrect_answer1": "3",
+            "incorrect_answer2": "9",
+            "incorrect_answer3": "5",
+            "category": "Math"
+        },
+        {
+            "qid": 10,
+            "question": "If the diameter of a circle is 10 units, what is its circumference?",
+            "correct_answer": "31.42 units",
+            "incorrect_answer1": "20 units",
+            "incorrect_answer2": "15.7 units",
+            "incorrect_answer3": "25.12 units",
+            "category": "Math"
+        }
+    ]
 }
 ```
 
 ## Conclusion
 
-Congratulations! You now have access to the Trivia API and can start integrating it into your applications. If you encounter any issues or have questions, please refer to this documentation or contact our support team at support@example.com.
+Congratulations! You now have access to the Trivia API and can start integrating it into your applications. If you encounter any issues or have questions, please refer to this documentation.
 
 Happy trivia gaming! 🎉
 

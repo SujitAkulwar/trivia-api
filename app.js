@@ -160,8 +160,10 @@ app.post('/all_users', (req, res) => {
   });
 });
 
-app.post('/get_all_apikeys', (req, res) => {
-  const Query = 'SELECT * FROM `api_keys`';
+
+////////////////// get all categories /////////////////
+app.post('/get_all_categories', (req, res) => {
+  const Query = 'SELECT DISTINCT category FROM trivia_questions;';
   db.query(Query, (err, results) => {
     if (err) {
       console.error('Error registering user:', err);
@@ -171,6 +173,21 @@ app.post('/get_all_apikeys', (req, res) => {
     }
   });
 });
+
+
+
+
+// app.post('/get_all_apikeys', (req, res) => {
+//   const Query = 'SELECT * FROM `api_keys`';
+//   db.query(Query, (err, results) => {
+//     if (err) {
+//       console.error('Error registering user:', err);
+//       res.status(500).json({ error: 'Error registering user' }).end();
+//     } else {
+//       res.json({ message: results });
+//     }
+//   });
+// });
 
 
 app.listen(PORT, () => {
